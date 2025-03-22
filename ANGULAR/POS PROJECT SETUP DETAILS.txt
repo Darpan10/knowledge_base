@@ -1,0 +1,78 @@
+initial setup:
+setup angular 10 :
+ 
+download node 12.8.2
+
+or v12.22.12 or 14
+ 
+node -v
+npm -v 
+ 
+ 
+ 
+Install Angular:
+ 
+npm install -g @angular/cli@10
+
+
+
+Node js:
+
+
+my-express-app/
+├── node_modules/
+├── src/
+│   ├── controllers/
+│   ├── middlewares/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   └── app.js
+├── tests/
+├── .env
+├── .gitignore
+├── package.json
+└── README.md
+
+
+
+npm init -y
+
+npm install express
+
+npm install --save-dev nodemon
+
+Add Scripts to package.json
+Add a start script to your package.json:
+
+"scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+}
+
+
+
+npm install --save-dev nodemon
+
+
+
+Start your application:
+For development (with auto-reload):
+
+npm run dev
+
+
+For production:
+
+ 
+npm start
+
+
+
+build command :
+
+
+npm install --force
+
+
+ npm install firebase@7.24.0 @angular/fire@5.4.2

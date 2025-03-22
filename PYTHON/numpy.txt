@@ -1,0 +1,127 @@
+a.1-D ARRAY:
+
+1.np.array()
+
+2.np.arrange():
+
+
+Create a 1D array with numbers from 0 to 15
+arr = np.arange(16)
+
+
+
+Basic sequence: np.arange(16) generates numbers from 0 to 15.
+Custom range: np.arange(start, stop) where stop is exclusive.
+Step size: np.arange(start, stop, step) where you can set how the numbers should increase or decrease.
+
+
+
+check the shape : print(my_array_3d.shape)
+
+
+b. 2-D ARRAY :
+
+1.np.random.rad()
+2.np.zeroes
+
+
+
+c.1D,2D,3D CONVERSION:
+
+
+1D to 2D: array_2d = array_1d.reshape(3, 4)
+2D to 1D: array_1d = array_2d.reshape(-1)
+2D to 3D: array_3d = array_2d.reshape(2, 3, 3)
+1D to 3D: array_3d = array_1d.reshape(2, 3, 2)
+2d->1d : array.flattern()
+
+
+----------------------------------------------------------------------------------------------------------------
+
+d.METAPOTLIB:
+
+
+plot:
+ml.scattter()
+
+
+--------------------------------------------------------------------------------------------------------------
+
+e.DATATYPES :
+
+print datatype of array : array.dtype
+
+convert into int : array.astype(np.int32)
+
+
+Boolean → Int → Float → Complex → String (from least general to most general type).
+
+
+
+
+Boolean (bool), when mixed with:
+int → becomes int
+float → becomes float
+complex → becomes complex
+string → becomes string
+
+Integer (int), when mixed with:
+float → becomes float
+complex → becomes complex
+string → becomes string
+
+Float (float), when mixed with:
+complex → becomes complex
+string → becomes string
+
+Complex (complex), when mixed with:
+string → becomes string
+String (str or U), when mixed with:
+boolean, integer, float, or complex → all convert to string
+
+
+
+
+-------------------------------------------------------------------------------------------------------
+
+f.INDEXING AND SLICING:
+
+
+
+Change value at index:
+
+np_m_arr_1[0, 0] = 2 → Set value at index (0,0) to 2.
+np_m_arr_1.itemset((0, 1), 1) → Set value at index (0,1) to 1.
+Get size and shape:
+
+np_m_arr_1.shape → Returns the shape (dimensions) of the array.
+np_m_arr_1.size → Returns the total number of elements in the array.
+Get value by index:
+
+np_m_arr_1[0, 1] → Retrieve value at index (0,1).
+np_m_arr_1.item(0, 1) → Retrieve value using .item().
+Get specific indices:
+
+np.take(np_m_arr_1, [0, 3, 6]) → Retrieve elements at indices 0, 3, and 6.
+np.put(np_m_arr_1, [0, 3, 6], [10, 10, 10]) → Replace values at indices 0, 3, 6 with 10.
+Slicing:
+
+np_arr_1[:5:2] → Slice array from 0 to 5 with step 2.
+np_m_arr_1[:, 1] → Get second value from each row.
+np_arr_1[::-1] → Reverse the entire array.
+Conditional selection:
+
+np_m_arr_1[np_m_arr_1 % 2 == 0] → Get even numbers.
+np_m_arr_1[np_m_arr_1 > 5] → Get values greater than 5.
+np_m_arr_1[(np_m_arr_1 > 5) & (np_m_arr_1 < 9)] → Get values between 5 and 9.
+np_m_arr_1[(np_m_arr_1 > 5) | (np_m_arr_1 == 10)] → Get values greater than 5 or equal to 10.
+Find unique values:
+
+np.unique(np_m_arr_1) → Return unique values in the array.
+
+
+
+
+
+
+

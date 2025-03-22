@@ -1,0 +1,38 @@
+npm init
+npm audit fix --force
+npm install --force
+ng new my-angular-project
+npm install -g @angular/cli@latest
+ng update
+npm cache clean --force
+
+
+ 
+ in code commands.   
+ 
+ ng generate module user-Auth
+ 
+ ng generate component user-Auth/login
+
+ npm install bootstrap
+
+
+ng generate component dashboard/main-dashboard
+
+ng generate component navbar --module dashboard/main-dashboard
+
+ng generate component home-view/home
+
+
+
+ng generate component menu/viewMenu
+
+ng generate module menu/menu
+
+
+
+
+
+
+
+
