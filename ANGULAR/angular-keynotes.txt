@@ -1,0 +1,12 @@
+Angular key NOTES :
+
+attribute vs properties binding in angular :
+
+- Attributes define the initial state of an element in the HTML markup.
+
+- Properties represent the current state or behavior of an element in the DOM after it has been rendered.
+
+- Changes to attributes don't automatically reflect in properties, but changes to properties are reflected in the DOM and might affect behavior or appearance.
+
+
+
