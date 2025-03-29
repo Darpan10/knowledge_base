@@ -10,3 +10,307 @@ attribute vs properties binding in angular :
 
 
 
+
+===============================================================================================================================
+
+
+
+
+These are all major built-in directives in Angular:
+
+
+Structural Directives: *ngFor, *ngIf, *ngSwitch, *ngSwitchCase, *ngSwitchDefault, *ngIf...else
+
+Attribute Directives: ngClass, ngStyle, ngModel, ngModelGroup, ngContent, ngContainer, ngTemplateOutlet
+
+Event Binding Directives: (click), #templateReference
+
+Form Directives: formControl, formGroup, formArray, formControlName, ngSubmit
+
+Miscellaneous Directives: ngIf...as, ngTemplateOutlet
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+1. Structural Directives (used to change the structure of the DOM)
+
+*ngFor
+
+
+Purpose: Loops through an array or collection.
+
+Example:
+
+html
+Copy
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+This renders a list of items by iterating over the array.
+
+
+
+
+
+*ngIf
+Purpose: Conditionally includes an element in the DOM based on an expression.
+
+Example:
+
+html
+Copy
+<div *ngIf="isVisible">This is visible only if isVisible is true.</div>
+The content inside <div> will only be rendered if isVisible is true.
+
+*ngIf...else
+Purpose: Shows one template if the condition is true and another template if false.
+
+Example:
+
+html
+Copy
+<div *ngIf="isVisible; else elseTemplate">Visible Content</div>
+<ng-template #elseTemplate><p>Hidden Content</p></ng-template>
+The elseTemplate is shown if isVisible is false.
+
+
+
+
+
+
+
+
+*ngSwitch
+Purpose: Acts like a switch statement; conditionally display elements based on the value of an expression.
+
+Example:
+
+html
+Copy
+<div [ngSwitch]="value">
+  <p *ngSwitchCase="'one'">First case</p>
+  <p *ngSwitchCase="'two'">Second case</p>
+  <p *ngSwitchDefault>Default case</p>
+</div>
+Based on the value of value, the corresponding content is shown.
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+2. Attribute Directives (used to change the appearance or behavior of an element)
+
+
+
+
+*ngClass
+
+Purpose: Adds/removes CSS classes dynamically.
+
+Example:
+
+html
+Copy
+<div [ngClass]="{ 'highlight': isHighlighted }">Text</div>
+The highlight class will be added if isHighlighted is true.
+
+ngStyle
+Purpose: Dynamically sets CSS styles on an element.
+
+Example:
+
+html
+Copy
+<div [ngStyle]="{ 'color': textColor, 'font-size': fontSize + 'px' }">Styled text</div>
+The color and font-size are dynamically set based on the component’s properties.
+
+
+
+
+
+
+
+*ngModel
+Purpose: Two-way data binding for forms (often used in input elements).
+
+Example:
+
+html
+Copy
+<input [(ngModel)]="name" placeholder="Enter your name">
+<p>Your name is: {{ name }}</p>
+The input value is bound to the name property, updating in both directions.
+
+
+
+
+
+
+
+
+
+
+*ngModelGroup
+Purpose: Used to group multiple form controls into one logical unit in a form.
+
+Example:
+
+html
+Copy
+<form [formGroup]="userForm">
+  <div formGroupName="address">
+    <input formControlName="street">
+    <input formControlName="city">
+  </div>
+</form>
+The inputs for street and city are grouped together in the address group.
+
+
+
+
+
+
+
+
+*ngContent
+Purpose: Used for content projection (placing content inside a component).
+
+Example:
+
+html
+Copy
+<app-card>
+  <div>Content inside the card</div>
+</app-card>
+
+<!-- Inside app-card component -->
+<div class="card">
+  <ng-content></ng-content>
+</div>
+The content inside <app-card> is projected into the ng-content placeholder inside the app-card component.
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+3. Event Binding and Template Reference Directives
+*(click)
+Purpose: Event binding to call a method when an event is triggered.
+
+Example:
+
+html
+Copy
+<button (click)="showMessage()">Click me</button>
+Calls the showMessage() method when the button is clicked.
+
+#templateReference
+Purpose: Creates a reference to a DOM element or a component for accessing its properties or methods.
+
+Example:
+
+html
+Copy
+<input #userInput>
+<button (click)="logInput(userInput.value)">Log Input</button>
+The value of the input is accessed using the template reference variable #userInput.
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+4. Built-in Directives for Forms
+
+
+
+*formControl
+
+Purpose: Used for binding an individual form control to a DOM element.
+
+Example:
+
+html
+Copy
+<input [formControl]="nameControl">
+Binds an individual form control (nameControl) to an input field.
+
+
+
+
+
+
+
+
+
+
+
+
+
+*formGroup
+Purpose: Groups multiple form controls into one logical unit.
+
+Example:
+
+html
+Copy
+<form [formGroup]="userForm">
+  <input formControlName="name">
+  <input formControlName="email">
+</form>
+Binds form controls like name and email to the userForm.
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------
+5. ngIf with as (Angular 2+)
+Purpose: Alias for values in a conditional structure.
+
+Example:
+
+html
+Copy
+<div *ngIf="items as allItems; else noItems">
+  <p>Items length: {{ allItems.length }}</p>
+</div>
+<ng-template #noItems><p>No items available</p></ng-template>
+Using as to create an alias for items inside the *ngIf block.
+

@@ -1,0 +1,418 @@
+=====================================================================================================================================================
+
+1. var
+Scope: Function-scoped or globally scoped if declared outside a function.
+Hoisting: Hoisted to the top of its scope and initialized to undefined.
+Usage: Use cautiously to avoid scope issues, especially in loops and nested functions, where var can lead to unexpected behavior.
+
+
+2. let
+Scope: Block-scoped (accessible only within the nearest enclosing block {}).
+Hoisting: Hoisted to the top of the block but not initialized. Accessing it before declaration results in a ReferenceError.
+Usage: Ideal for variables that need to change within a block, like loop counters or conditionally defined variables.
+
+
+3. const
+Scope: Block-scoped, similar to let.
+Hoisting: Hoisted but must be initialized at the time of declaration. Accessing it before declaration results in a ReferenceError.
+Usage: Best for variables that should not change after being initialized (constants). Note that objects or arrays declared with const can still have their contents modified.
+
+
+
+4. Global Variables
+Scope: Global variables are accessible from anywhere in the code. They are declared outside any function or block or without var, let, or const.
+Hoisting: Global variables are hoisted, but since they are declared in the global scope, they are initialized as part of the global object (window in browsers).
+Usage: Use global variables sparingly, as they can lead to naming conflicts and harder-to-maintain code.
+
+=====================================================================================================================================================
+
+ES6 examples :
+
+Modules :
+
+In ES6, the module system is achieved through the use of export and import keywords. To make functions, variables, or objects available for use in other files, you define them with export. This can be done as named exports for multiple entities or as a default export for a single entity.
+
+To access these exported entities in another module, you use the import statement. Named exports are imported within curly braces, while the default export can be imported without braces and can be given any name. This structure allows for better code organization, encapsulation, and reusability across different parts of an application.
+
+
+Example
+
+math.js (Module File) :
+
+// Named exports
+export const add = (a, b) => a + b;
+export const subtract = (a, b) => a - b;
+
+// Default export
+const multiply = (a, b) => a * b;
+export default multiply;
+
+
+app.js (Main File) :
+
+// Importing named exports
+import { add, subtract } from './math.js';
+
+// Importing the default export
+import multiply from './math.js';
+
+console.log(add(5, 3));      // Output: 8
+console.log(subtract(5, 3)); // Output: 2
+console.log(multiply(5, 3)); // Output: 15
+
+=====================================================================================================================================================
+
+Higher Order function :
+
+
+First-class functions :
+
+Definition: are functions that can be treated as first-class citizens in a programming language. This means they can be assigned to variables, passed as arguments to other functions, returned from functions, and stored in data structures.
+
+
+
+
+1.Functions can be assigned to variables:
+ 
+ const greet = function() {
+    console.log("Hello!");
+};
+
+greet(); // Outputs: Hello!
+
+
+
+
+
+2.Functions can be passed as arguments to other functions.
+
+const sayHello = (greeting) => {
+    greeting();
+};
+sayHello(greet); // Outputs: Hello!
+
+
+
+
+
+3.Functions can return other functions.
+
+const createGreeter = (greeting) => {
+    return () => {
+        console.log(greeting);
+    };
+};
+const helloGreeter = createGreeter("Hello!");
+
+helloGreeter(); // Outputs: Hello!
+
+
+
+
+4.Functions can be stored in arrays or objects 
+
+const functions = [greet, helloGreeter];
+functions[0](); // Outputs: Hello!
+
+
+
+
+Different Parameter Passing :
+
+
+1. Positional Parameters
+Parameters are passed in the order they are defined.
+
+const add = (a, b) => {
+    return a + b;
+};
+
+console.log(add(2, 3)); // Outputs: 5
+
+
+
+
+
+2. Default Parameters
+You can set default values for parameters, which are used if no value is provided.
+
+const greet = (name = "Guest") => {
+    console.log(`Hello, ${name}!`);
+};
+
+greet(); // Outputs: Hello, Guest!
+greet("Alice"); // Outputs: Hello, Alice!
+
+
+
+
+
+
+3. Rest Parameters
+Allows you to pass an indefinite number of arguments as an array.
+
+const sum = (...numbers) => {
+    return numbers.reduce((total, num) => total + num, 0);
+};
+
+console.log(sum(1, 2, 3, 4)); // Outputs: 10
+
+
+
+
+
+4. Destructuring Parameters
+Unpack values from objects or arrays directly in the parameter list.
+
+
+i.Object Destructuring
+
+const displayUser = ({ name, age }) => {
+    console.log(`Name: ${name}, Age: ${age}`);
+};
+
+const user = { name: "Alice", age: 30 };
+displayUser(user); // Outputs: Name: Alice, Age: 30
+
+
+ii.Array Destructuring
+
+const displayCoordinates = ([x, y]) => {
+    console.log(`X: ${x}, Y: ${y}`);
+};
+
+const coordinates = [10, 20];
+displayCoordinates(coordinates); // Outputs: X: 10, Y: 20
+
+
+
+
+
+
+5. Object Parameters
+You can pass an object as a single parameter for better structure and clarity.
+
+const createUser = ({ name, age }) => {
+    return { name, age };
+};
+
+const user = createUser({ name: "Bob", age: 25 });
+console.log(user); // Outputs: { name: "Bob", age: 25 }
+
+
+
+different function declaration :
+
+const add = (a, b) => a + b;
+
+add = (a, b) => a + b; 
+
+add (a,b)
+{
+a+b
+}
+
+
+
+===================================================================================================
+  map(), filter(), and reduce() ,sort(),forEach
+===================================================================================================
+
+
+1. forEach():
+
+const numbers = [1, 2, 3, 4, 5];
+
+// Using forEach to iterate over the array
+numbers.forEach((number) => {
+    console.log(number * 2); // Outputs: 2, 4, 6, 8, 10
+});
+
+
+
+
+2. map():
+
+const numbers = [1, 2, 3, 4, 5];
+
+// Using map to create a new array with each number doubled
+const doubledNumbers = numbers.map((number) => {
+    return number * 2; // Multiply each number by 2
+});
+
+console.log(doubledNumbers); // Outputs: [2, 4, 6, 8, 10]
+
+
+
+
+3. Filter : Always return in boolean
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Using filter to create a new array with only even numbers
+const evenNumbers = numbers.filter((number) => {
+    return number % 2 === 0; // This returns true for even numbers, false for odd numbers
+});
+
+
+4. reduce : is used for aggregates functions.
+
+const numbers = [1, 2, 3, 4, 5];
+
+// Using reduce to calculate the sum of the array
+const sum = numbers.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue; // Add the current number to the accumulator
+}, 0); // Starting value for the accumulator is 0
+
+console.log(sum); // Outputs: 15
+
+
+
+
+
+map transforms each element in an array and returns a new array of the same length.
+
+filter selects elements that meet a condition and returns a new array that may be shorter.
+
+reduce aggregates all elements into a single value based on a specified function.
+
+
+==========================================================================================================================
+
+Spread and Rest Operators in ES6
+==========================================================================================================================
+
+1. Spread Operator :The spread operator is used to expand or spread elements of an iterable (like an array or object) into individual elements.
+
+Use Cases:
+
+i.Copying Arrays: Create a shallow copy of an array.
+
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1]; // Copying arr1 to arr2
+
+ii.Combining Arrays: Merge multiple arrays into one.
+
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+const combined = [...arr1, ...arr2]; // [1, 2, 3, 4]
+
+
+iii.Function Calls: Pass an array as arguments to a function.
+
+const numbers = [1, 2, 3];
+const max = Math.max(...numbers); // Equivalent to Math.max(1, 2, 3)
+
+
+iv.Object Literals: Merge or clone objects.
+
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3 };
+const merged = { ...obj1, ...obj2 }; // { a: 1, b: 2, c: 3 }
+
+
+
+2. Rest Operator
+
+Use Cases:
+
+i.Function Parameters: Capture a variable number of arguments into an array.
+
+const sum = (...numbers) => {
+    return numbers.reduce((acc, curr) => acc + curr, 0);
+};
+console.log(sum(1, 2, 3, 4)); // Outputs: 10
+
+
+ii.Destructuring Arrays/Objects: Capture remaining elements after destructuring.
+
+
+const arr = [1, 2, 3, 4];
+const [first, second, ...rest] = arr; // first = 1, second = 2, rest = [3, 4]
+
+
+const obj = { a: 1, b: 2, c: 3 };
+const { a, ...rest } = obj; // a = 1, rest = { b: 2, c: 3 }
+
+=================================================================================================================================================================
+
+
+
+A callback function is a function that is passed as an argument to another function and is executed after a certain event or condition is met. This is a common pattern in JavaScript, especially for handling asynchronous operations.
+
+
+
+
+Promises :
+
+
+
+Definition: A Promise is an object representing the eventual completion (or failure) of an asynchronous operation and its resulting value.
+States: A Promise can be in one of three states:
+Pending: The initial state; neither fulfilled nor rejected.
+Fulfilled: The operation completed successfully, and the Promise has a result.
+Rejected: The operation failed, and the Promise has a reason for the failure (error).
+Usage: Promises use .then() to handle successful results and .catch() for errors. They can be chained to handle multiple asynchronous operations.
+
+
+
+Promise Example :
+
+const fetchData = () => {
+    return new Promise((resolve, reject) => {
+        // Simulating an async operation using setTimeout
+        setTimeout(() => {
+            const data = "Data fetched!";
+            resolve(data); // Resolve the promise with the data
+        }, 1000);
+    });
+};
+
+fetchData()
+    .then(data => {
+        console.log(data); // Outputs: Data fetched!
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
+
+
+
+
+
+
+Async/Await:
+
+
+
+Definition: Async/Await is syntactic sugar built on top of Promises, making asynchronous code easier to read and write.
+Usage:
+Functions declared with the async keyword return a Promise.
+The await keyword is used to pause execution until a Promise is resolved or rejected.
+Error Handling: Errors in async functions can be caught using traditional try/catch blocks.
+
+
+Async/Await Example
+
+
+const fetchData = () => {
+    return new Promise((resolve, reject) => {
+        // Simulating an async operation using setTimeout
+        setTimeout(() => {
+            const data = "Data fetched!";
+            resolve(data); // Resolve the promise with the data
+        }, 1000);
+    });
+};
+
+const getData = async () => {
+    try {
+        const data = await fetchData(); // Wait for the promise to resolve
+        console.log(data); // Outputs: Data fetched!
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+getData();
