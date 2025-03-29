@@ -34,7 +34,7 @@ Miscellaneous Directives: ngIf...as, ngTemplateOutlet
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-
+=====> DIRECTIVES
 
 
 1. Structural Directives (used to change the structure of the DOM)
@@ -314,3 +314,138 @@ Copy
 <ng-template #noItems><p>No items available</p></ng-template>
 Using as to create an alias for items inside the *ngIf block.
 
+
+*ngIf is a structural directive in Angular that adds or removes HTML elements from the DOM based on a condition.
+
+
+<button (click)="toggleTextVisibility()">Toggle Text Visibility</button>
+<p *ngIf="showText">This is a paragraph that can be shown or hidden.</p>
+
+
+=>>>>>>>>>>remove <p> tag on click as above
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------
+
+types of binding in angular :
+
+Summary of Angular Binding Types:
+
+Interpolation Binding: {{ expression }}
+
+Property Binding: [property]="expression"
+
+Event Binding: (event)="expression"
+
+Two-Way Binding: [(ngModel)]="property"
+
+Class Binding: [class.className]="condition"
+
+Style Binding: [style.property]="expression"
+
+Attribute Binding: [attr.attribute]="expression"
+
+Structural Directives: *ngIf, *ngFor, etc.
+
+ngClass Directive: [ngClass]="{ className: condition }"
+
+ngStyle Directive: [ngStyle]="{ styleName: value }"
+
+===============================================================================================================================
+
+
+1. Interpolation Binding ({{ }})
+html
+Copy
+<h1>{{ title }}</h1>
+This binds the title property in the component to the <h1> element.
+
+
+
+2. Property Binding ([property])
+html
+Copy
+<img [src]="imageUrl">
+This binds the src property of the <img> element to the imageUrl property in the component.
+
+
+
+
+3. Event Binding ((event))
+html
+Copy
+<button (click)="onClick()">Click Me</button>
+This binds the click event of the button to the onClick() method in the component.
+
+
+
+
+4. Two-Way Binding ([(ngModel)])
+html
+Copy
+<input [(ngModel)]="name">
+This creates two-way data binding between the input element and the name property in the component.
+
+
+
+
+5. Class Binding ([class.className])
+html
+Copy
+<div [class.active]="isActive">This div is conditionally active.</div>
+This applies the active class to the div if isActive is true.
+
+
+
+
+6. Style Binding ([style.styleName])
+html
+Copy
+<div [style.background-color]="bgColor">This div has a dynamic background.</div>
+This dynamically sets the background-color style based on the bgColor property in the component.
+
+
+
+
+7. Attribute Binding ([attr.attribute])
+html
+Copy
+<a [attr.href]="linkUrl">Click Here</a>
+This binds the href attribute of the anchor tag to the linkUrl property in the component.
+
+
+
+
+8. *Structural Directives (ngIf)
+html
+Copy
+<p *ngIf="isVisible">This paragraph is conditionally visible.</p>
+This shows or hides the paragraph depending on the isVisible boolean property.
+
+
+
+
+9. ngClass Directive
+html
+Copy
+<div [ngClass]="{ 'active': isActive, 'highlighted': isHighlighted }">This div has dynamic classes.</div>
+This applies the active and highlighted classes based on the isActive and isHighlighted boolean properties.
+
+
+
+
+10. ngStyle Directive
+html
+Copy
+<div [ngStyle]="{ 'color': textColor, 'font-size': fontSize + 'px' }">This div has dynamic styles.</div>
+This dynamically sets the color and font-size styles based on the textColor and fontSize properties in the component.
