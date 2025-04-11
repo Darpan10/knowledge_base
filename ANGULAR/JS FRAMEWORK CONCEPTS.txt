@@ -215,7 +215,7 @@ a+b
 
 
 ===================================================================================================
-  map(), filter(), and reduce() ,sort(),forEach
+  map(), filter(), and reduce() ,sort(),forEach , Find()
 ===================================================================================================
 
 
@@ -266,6 +266,17 @@ const sum = numbers.reduce((accumulator, currentValue) => {
 
 console.log(sum); // Outputs: 15
 
+
+
+
+5.find() :
+ is an ES6 array method that returns the first element in an array that satisfies a provided testing function. It stops searching as soon as it finds a match. If no elements satisfy the condition, it returns undefined.
+
+
+
+const numbers = [1, 2, 3, 4, 5];
+const result = numbers.find(num => num > 3);
+console.log(result);  // Output: 4
 
 
 

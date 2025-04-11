@@ -7,6 +7,9 @@ ng update
 npm cache clean --force
 
 
+npm install @angular/cdk@10
+
+npm star -- rebuild any module not found
  
  in code commands.   
  
